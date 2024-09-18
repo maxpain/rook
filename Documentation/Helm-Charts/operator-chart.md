@@ -56,8 +56,8 @@ The following table lists the configurable parameters of the rook-operator chart
 | `csi.attacher.repository` | Kubernetes CSI Attacher image repository | `"registry.k8s.io/sig-storage/csi-attacher"` |
 | `csi.attacher.tag` | Attacher image tag | `"v4.5.0"` |
 | `csi.cephFSAttachRequired` | Whether to skip any attach operation altogether for CephFS PVCs. See more details [here](https://kubernetes-csi.github.io/docs/skip-attach.html#skip-attach-with-csi-driver-object). If cephFSAttachRequired is set to false it skips the volume attachments and makes the creation of pods using the CephFS PVC fast. **WARNING** It's highly discouraged to use this for CephFS RWO volumes. Refer to this [issue](https://github.com/kubernetes/kubernetes/issues/103305) for more details. | `true` |
-| `csi.cephFSFSGroupPolicy` | Policy for modifying a volume's ownership or permissions when the CephFS PVC is being mounted. supported values are documented at https://kubernetes-csi.github.io/docs/support-fsgroup.html | `"File"` |
-| `csi.cephFSKernelMountOptions` | Set CephFS Kernel mount options to use https://docs.ceph.com/en/latest/man/8/mount.ceph/#options. Set to "ms_mode=secure" when connections.encrypted is enabled in CephCluster CR | `nil` |
+| `csi.cephFSFSGroupPolicy` | Policy for modifying a volume's ownership or permissions when the CephFS PVC is being mounted. supported values are documented at <https://kubernetes-csi.github.io/docs/support-fsgroup.html> | `"File"` |
+| `csi.cephFSKernelMountOptions` | Set CephFS Kernel mount options to use <https://docs.ceph.com/en/latest/man/8/mount.ceph/#options>. Set to "ms_mode=secure" when connections.encrypted is enabled in CephCluster CR | `nil` |
 | `csi.cephFSPluginUpdateStrategy` | CSI CephFS plugin daemonset update strategy, supported values are OnDelete and RollingUpdate | `RollingUpdate` |
 | `csi.cephFSPluginUpdateStrategyMaxUnavailable` | A maxUnavailable parameter of CSI cephFS plugin daemonset update strategy. | `1` |
 | `csi.cephcsi.repository` | Ceph CSI image repository | `"quay.io/cephcsi/cephcsi"` |
@@ -67,7 +67,7 @@ The following table lists the configurable parameters of the rook-operator chart
 | `csi.clusterName` | Cluster name identifier to set as metadata on the CephFS subvolume and RBD images. This will be useful in cases like for example, when two container orchestrator clusters (Kubernetes/OCP) are using a single ceph cluster | `nil` |
 | `csi.csiAddons.enabled` | Enable CSIAddons | `false` |
 | `csi.csiAddons.repository` | CSIAddons sidecar image repository | `"quay.io/csiaddons/k8s-sidecar"` |
-| `csi.csiAddons.tag` | CSIAddons sidecar image tag | `"v0.8.0"` |
+| `csi.csiAddons.tag` | CSIAddons sidecar image tag | `"v0.11.0"` |
 | `csi.csiAddonsPort` | CSI Addons server port | `9070` |
 | `csi.csiCephFSPluginResource` | CEPH CSI CephFS plugin resource requirement list | see values.yaml |
 | `csi.csiCephFSPluginVolume` | The volume of the CephCSI CephFS plugin DaemonSet | `nil` |
@@ -84,7 +84,7 @@ The following table lists the configurable parameters of the rook-operator chart
 | `csi.csiRBDPluginVolumeMount` | The volume mounts of the CephCSI RBD plugin DaemonSet | `nil` |
 | `csi.csiRBDProvisionerResource` | CEPH CSI RBD provisioner resource requirement list csi-omap-generator resources will be applied only if `enableOMAPGenerator` is set to `true` | see values.yaml |
 | `csi.disableCsiDriver` | Disable the CSI driver. | `"false"` |
-| `csi.disableHolderPods` | Deprecation note: Rook uses "holder" pods to allow CSI to connect to the multus public network without needing hosts to the network. Holder pods are being removed. See issue for details: https://github.com/rook/rook/issues/13055. New Rook deployments should set this to "true". | `true` |
+| `csi.disableHolderPods` | Deprecation note: Rook uses "holder" pods to allow CSI to connect to the multus public network without needing hosts to the network. Holder pods are being removed. See issue for details: <https://github.com/rook/rook/issues/13055>. New Rook deployments should set this to "true". | `true` |
 | `csi.enableCSIEncryption` | Enable Ceph CSI PVC encryption support | `false` |
 | `csi.enableCSIHostNetwork` | Enable host networking for CSI CephFS and RBD nodeplugins. This may be necessary in some network configurations where the SDN does not provide access to an external cluster or there is significant drop in read/write performance | `true` |
 | `csi.enableCephfsDriver` | Enable Ceph CSI CephFS driver | `true` |
@@ -104,7 +104,7 @@ The following table lists the configurable parameters of the rook-operator chart
 | `csi.logLevel` | Set logging level for cephCSI containers maintained by the cephCSI. Supported values from 0 to 5. 0 for general useful logs, 5 for trace level verbosity. | `0` |
 | `csi.nfs.enabled` | Enable the nfs csi driver | `false` |
 | `csi.nfsAttachRequired` | Whether to skip any attach operation altogether for NFS PVCs. See more details [here](https://kubernetes-csi.github.io/docs/skip-attach.html#skip-attach-with-csi-driver-object). If cephFSAttachRequired is set to false it skips the volume attachments and makes the creation of pods using the NFS PVC fast. **WARNING** It's highly discouraged to use this for NFS RWO volumes. Refer to this [issue](https://github.com/kubernetes/kubernetes/issues/103305) for more details. | `true` |
-| `csi.nfsFSGroupPolicy` | Policy for modifying a volume's ownership or permissions when the NFS PVC is being mounted. supported values are documented at https://kubernetes-csi.github.io/docs/support-fsgroup.html | `"File"` |
+| `csi.nfsFSGroupPolicy` | Policy for modifying a volume's ownership or permissions when the NFS PVC is being mounted. supported values are documented at <https://kubernetes-csi.github.io/docs/support-fsgroup.html> | `"File"` |
 | `csi.nfsPluginUpdateStrategy` | CSI NFS plugin daemonset update strategy, supported values are OnDelete and RollingUpdate | `RollingUpdate` |
 | `csi.nfsPodLabels` | Labels to add to the CSI NFS Deployments and DaemonSets Pods | `nil` |
 | `csi.pluginNodeAffinity` | The node labels for affinity of the CephCSI RBD plugin DaemonSet [^1] | `nil` |
@@ -117,7 +117,7 @@ The following table lists the configurable parameters of the rook-operator chart
 | `csi.provisionerReplicas` | Set replicas for csi provisioner deployment | `2` |
 | `csi.provisionerTolerations` | Array of tolerations in YAML format which will be added to CSI provisioner deployment | `nil` |
 | `csi.rbdAttachRequired` | Whether to skip any attach operation altogether for RBD PVCs. See more details [here](https://kubernetes-csi.github.io/docs/skip-attach.html#skip-attach-with-csi-driver-object). If set to false it skips the volume attachments and makes the creation of pods using the RBD PVC fast. **WARNING** It's highly discouraged to use this for RWO volumes as it can cause data corruption. csi-addons operations like Reclaimspace and PVC Keyrotation will also not be supported if set to false since we'll have no VolumeAttachments to determine which node the PVC is mounted on. Refer to this [issue](https://github.com/kubernetes/kubernetes/issues/103305) for more details. | `true` |
-| `csi.rbdFSGroupPolicy` | Policy for modifying a volume's ownership or permissions when the RBD PVC is being mounted. supported values are documented at https://kubernetes-csi.github.io/docs/support-fsgroup.html | `"File"` |
+| `csi.rbdFSGroupPolicy` | Policy for modifying a volume's ownership or permissions when the RBD PVC is being mounted. supported values are documented at <https://kubernetes-csi.github.io/docs/support-fsgroup.html> | `"File"` |
 | `csi.rbdLivenessMetricsPort` | Ceph CSI RBD driver metrics port | `8080` |
 | `csi.rbdPluginUpdateStrategy` | CSI RBD plugin daemonset update strategy, supported values are OnDelete and RollingUpdate | `RollingUpdate` |
 | `csi.rbdPluginUpdateStrategyMaxUnavailable` | A maxUnavailable parameter of CSI RBD plugin daemonset update strategy. | `1` |
