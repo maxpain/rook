@@ -23,9 +23,9 @@ A full explanation can be found in the [Prometheus operator repository on GitHub
 ```console
 kubectl create -f https://raw.githubusercontent.com/coreos/prometheus-operator/v0.71.1/bundle.yaml
 ```
+
 !!! note
     If the Prometheus Operator is already present in your cluster, the command provided above may fail. For a detailed explanation of the issue and a workaround, please refer to [this issue](https://github.com/rook/rook/issues/13459).
-
 
 This will start the Prometheus operator, but before moving on, wait until the operator is in the `Running` state:
 
@@ -47,7 +47,7 @@ There are two sources for metrics collection:
 From the root of your locally cloned Rook repo, go the monitoring directory:
 
 ```console
-$ git clone --single-branch --branch v1.14.0 https://github.com/rook/rook.git
+$ git clone --single-branch --branch v1.16.0-beta.0 https://github.com/rook/rook.git
 cd rook/deploy/examples/monitoring
 ```
 
@@ -69,6 +69,7 @@ kubectl -n rook-ceph get pod prometheus-rook-prometheus-0
 ### Dashboard config
 
 Configure the Prometheus endpoint so the dashboard can retrieve metrics from Prometheus with two settings:
+
 - `prometheusEndpoint`: The url of the Prometheus instance
 - `prometheusEndpointSSLVerify`: Whether SSL should be verified if the Prometheus server is using https
 
@@ -129,9 +130,9 @@ A guide to how you can write your own Prometheus consoles can be found on the of
 
 To enable the Ceph Prometheus alerts via the helm charts, set the following properties in values.yaml:
 
-* rook-ceph chart:
+- rook-ceph chart:
   `monitoring.enabled: true`
-* rook-ceph-cluster chart:
+- rook-ceph-cluster chart:
   `monitoring.enabled: true`
   `monitoring.createPrometheusRules: true`
 
@@ -326,4 +327,4 @@ spec:
 ```
 
 !!! warning
-    During reconciliation of a `CephObjectStore`, the Rook Operator will reset the replica count for RGW which was set by horizontal pod scaler. The horizontal pod autoscaler will change the again once it re-evaluates the rule. This can result in a performance hiccup of several seconds after a reconciliation. This is briefly discussed (here)[https://github.com/rook/rook/issues/10001]
+    During reconciliation of a `CephObjectStore`, the Rook Operator will reset the replica count for RGW which was set by horizontal pod scaler. The horizontal pod autoscaler will change the again once it re-evaluates the rule. This can result in a performance hiccup of several seconds after a reconciliation. This is briefly discussed [here](https://github.com/rook/rook/issues/10001)
