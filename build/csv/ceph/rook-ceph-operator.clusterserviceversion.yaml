@@ -3044,7 +3044,7 @@ spec:
                             fieldPath: metadata.namespace
                       - name: ROOK_OBC_WATCH_OPERATOR_NAMESPACE
                         value: "true"
-                    image: docker.io/rook/ceph:v1.13.0.399.g9c0d795e2
+                    image: docker.io/rook/ceph:v1.16.0-beta.0
                     name: rook-ceph-operator
                     resources: {}
                     securityContext:
