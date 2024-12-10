@@ -52,6 +52,8 @@ Please use the following to reach members of the community:
 -   GitHub: Start a [discussion](https://github.com/rook/rook/discussions) or open an [issue](https://github.com/rook/rook/issues)
 -   Twitter: [@rook_io](https://twitter.com/rook_io)
 -   Security topics: [cncf-rook-security@lists.cncf.io](#reporting-security-vulnerabilities)
+-   Language discussion groups
+    - [Russian Telegram group](https://t.me/rook_ru)
 
 ## Community Meeting
 
